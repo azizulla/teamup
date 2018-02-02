@@ -1,44 +1,37 @@
 //
-//  TeamListController.swift
+//  SearchTeamList.swift
 //  TeamUp
 //
-//  Created by Aziz on 2017-11-16.
-//  Copyright © 2017 Aziz. All rights reserved.
+//  Created by Aziz on 2018-01-28.
+//  Copyright © 2018 Aziz. All rights reserved.
 //
 
 import UIKit
-import CoreData
 import FirebaseDatabase
+import Firebase
 import FirebaseAuth
 
-class TeamListController: UITableViewController, UISearchResultsUpdating {
-    
 
-    let searchController = UISearchController(searchResultsController: nil)
+class SearchViewController: UITableViewController, UISearchResultsUpdating  {
+    
+    
+   let searchController = UISearchController(searchResultsController: nil)
+    
+    
     var players = [NSDictionary?]()
     var filteredUsers = [NSDictionary?]()
-    
-    @IBOutlet var followPlayersTabelView: UITableView!
- 
-
     
     var ref:DatabaseReference?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
-        
+        // tableView.dataSource = dataSource
         ref = Database.database().reference()
         startObservingDatabase()
         
         
     }
-    
     func startObservingDatabase () {
         
         let userID = Auth.auth().currentUser?.uid
@@ -58,7 +51,7 @@ class TeamListController: UITableViewController, UISearchResultsUpdating {
             {
                 self.players.append(snapshot)
                 //insert the rows
-                self.followPlayersTabelView.insertRows(at: [IndexPath(row:self.players.count-1,section:0)], with: UITableViewRowAnimation.automatic)
+            //    self.followPlayersTabelView.insertRows(at: [IndexPath(row:self.players.count-1,section:0)], with: UITableViewRowAnimation.automatic)
             }
             
             
@@ -147,8 +140,6 @@ class TeamListController: UITableViewController, UISearchResultsUpdating {
             
         }
     }
-
+    
 }
-
-
 

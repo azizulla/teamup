@@ -376,7 +376,11 @@
                                 <segue destination="lMT-J8-Ybe" kind="unwind" unwindAction="unwindSegue:" id="2rt-gL-li4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="S1M-Cd-GjT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="S1M-Cd-GjT">
+                            <connections>
+                                <segue destination="aDu-gL-j1C" kind="show" id="SWM-0i-cKx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBI-1E-fVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -739,5 +743,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="lsI-HP-bTq"/>
         <segue reference="VOD-Mk-NQZ"/>
+        <segue reference="SWM-0i-cKx"/>
     </inferredMetricsTieBreakers>
 </document>

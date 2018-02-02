@@ -15,7 +15,7 @@ import FirebaseAuth
 
 class ProfileTeamListController: UITableViewController {
 
-    var selectedPost: Players!
+    var selectedPost: NSDictionary!
     
     var copyArray = [String]()
    // var copyTeamArray = [String]()
@@ -37,7 +37,7 @@ class ProfileTeamListController: UITableViewController {
 // --- getting data
     func startObservingDatabase () {
         let userID = Auth.auth().currentUser?.uid
-        let currentPlayer = selectedPost.uid
+        let currentPlayer = selectedPost["uid"] as? String
         
               ref?.child("Players").child(currentPlayer!).child("team").observe(.value, with: { (snapshot ) in
                 

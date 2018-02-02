@@ -15,7 +15,7 @@ import FirebaseAuth
 
 class PlayerProfileViewController: UIViewController {
     
-    var selectedPost: Players!
+    var selectedPost: NSDictionary!
     var teamSquad: Team!
     
     var team = [Team]()
@@ -41,12 +41,16 @@ class PlayerProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playerEmailLabel.text = selectedPost.email
-        playerFirstNameLabel.text = selectedPost.firstName
-        playerLastNameLabel.text = selectedPost.lastName
-        playerPositionLabel.text = selectedPost.position
-        playerJerseyNumberLabel.text = selectedPost.squad
-        playerFriendsLabel.text = selectedPost.uid
+        playerEmailLabel.text = selectedPost["email"] as? String
+        playerFirstNameLabel.text = selectedPost["firstName"] as? String
+        playerLastNameLabel.text = selectedPost["lastName"] as? String
+        playerPositionLabel.text = selectedPost["position"] as? String
+        playerJerseyNumberLabel.text = selectedPost["squad"] as? String
+        playerFriendsLabel.text = selectedPost["uid"] as? String
+        
+        
+        self.inviteButton.layer.cornerRadius = 10
+        self.inviteButton.clipsToBounds = true
         
         
         self.inviteButton.layer.cornerRadius = 10
