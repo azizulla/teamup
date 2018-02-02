@@ -235,7 +235,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muQ-Oc-lt9">
-                                            <rect key="frame" x="317" y="40" width="36" height="30"/>
+                                            <rect key="frame" x="317" y="39" width="36" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Invite"/>
                                             <connections>
@@ -243,7 +243,7 @@
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="867366" translatesAutoresizingMaskIntoConstraints="NO" id="wlk-JX-UkK">
-                                            <rect key="frame" x="17" y="5" width="68" height="71"/>
+                                            <rect key="frame" x="17" y="3" width="68" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES"/>
@@ -253,7 +253,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="player name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d90-dE-76K">
-                                            <rect key="frame" x="93" y="33" width="216" height="23"/>
+                                            <rect key="frame" x="93" y="31" width="216" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -474,7 +474,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="select image"/>
                                 <connections>
-                                    <action selector="selectProfileImage:" destination="6Bo-dm-yv7" eventType="touchUpInside" id="jPm-p5-Rvl"/>
+                                    <action selector="uploadImageButton:" destination="6Bo-dm-yv7" eventType="touchUpInside" id="fX7-hR-cDW"/>
                                 </connections>
                             </button>
                         </subviews>

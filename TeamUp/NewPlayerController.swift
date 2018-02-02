@@ -10,12 +10,13 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 import FirebaseAuth
+import Firebase
 
 class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref:DatabaseReference?
     
-    var managedObjectContext: NSManagedObjectContext!
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var playerEmailTextField: UITextField! 
     @IBOutlet weak var playerFirstNameTextField: UITextField!
@@ -35,7 +36,32 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
         profileImage.image = UIImage(named: "867366")
     }
 
+    @IBAction func uploadImageButton(_ sender: Any) {
     
+        let imagePickerButton = UIImagePickerController()
+        imagePickerButton.allowsEditing = false
+        imagePickerButton.sourceType = .photoLibrary
+        imagePickerButton.delegate = self
+        
+        present(imagePickerButton, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    // let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+      let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profileImage.image = image
+        profileImage.contentMode = .scaleAspectFill
+        dismiss(animated: true, completion:nil)
+    
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        dismiss(animated: true, completion:nil)
+    }
+
     
   
     
@@ -129,13 +155,6 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
-        
-
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
-    }
 
     
  
