@@ -11,13 +11,13 @@ import CoreData
 import FirebaseDatabase
 import FirebaseAuth
 
-class NewPlayerController: UIViewController {
+class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref:DatabaseReference?
     
     var managedObjectContext: NSManagedObjectContext!
     
-    @IBOutlet weak var playerEmailTextField: UITextField!
+    @IBOutlet weak var playerEmailTextField: UITextField! 
     @IBOutlet weak var playerFirstNameTextField: UITextField!
     @IBOutlet weak var playerLastNameTextField: UITextField!
     @IBOutlet weak var playerPositionTextField: UITextField!
@@ -26,20 +26,27 @@ class NewPlayerController: UIViewController {
     @IBOutlet weak var playerPassword: UITextField!
     @IBOutlet weak var playerRetypePassword: UITextField!
 
+    @IBOutlet weak var profileImage: UIImageView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        profileImage.image = UIImage(named: "867366")
     }
 
+    
+    
+  
+    
+// ---  saving the player
+    
     @IBAction func save(_ sender: Any) {
+     
+    let userID = Auth.auth().currentUser?.uid
         
     ref = Database.database().reference().root
         
-    //let alert = UIAlertController(title: "Ugh...",
-      //                                message: " First Name, Last Name, Email, Jersey Number & Position are required.",
-        //                              preferredStyle: .alert)
         let alert = UIAlertController(title: "Ugh...",
                                       message: " First Name, Last Name, Email, Jersey Number & Position are required.",
                                       preferredStyle: .alert)
@@ -47,6 +54,8 @@ class NewPlayerController: UIViewController {
         let cancelAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(cancelAction)
     
+   // let profileImage = self.profileImage
+        
         
     guard let playerEmail = playerEmailTextField.text, !playerEmail.isEmpty else { return present(alert, animated: true, completion: nil)}
     guard let playerFirstName = playerFirstNameTextField.text, !playerFirstName.isEmpty else { return present(alert, animated: true, completion: nil)}
@@ -54,29 +63,56 @@ class NewPlayerController: UIViewController {
     guard let playerPosition = playerPositionTextField.text, !playerPosition.isEmpty else { return present(alert, animated: true, completion: nil)}
     guard let playerJerseyNumber = playerJerseyNumberTextField.text, !playerJerseyNumber.isEmpty else { return  present(alert, animated: true, completion: nil)}
     guard let playerPassword = playerPassword.text, !playerPassword.isEmpty else { return present(alert, animated: true, completion: nil)}
-  
+
         
-   // guard let currentTeam = team, !currentTeam.isEmpty else { return }
-   
-    //  let newplayers = NSEntityDescription.insertNewObject(forEntityName: "Players", into: managedObjectContext) as! Players
+        
+        
+        // Create the user with the provided credentials
+        Auth.auth().createUser(withEmail: playerEmail, password: playerPassword, completion: { (user, error) in
+            
+            guard let user = user, error == nil else {
+              //  self.showMessagePrompt(error!.localizedDescription)
+                return
+            }
+            
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = playerFirstName
+            let userID = user.uid
+            
+            let player:[String : AnyObject] = ["firstName":playerFirstName as AnyObject,
+                                               "lastName":playerLastName as AnyObject,
+                                               "email":playerEmail as AnyObject,
+                                               "squad":playerJerseyNumber as AnyObject,
+                                               "position":playerPosition as AnyObject,
+                                               "uid":userID as AnyObject]
+
+            // Commit profile changes to server
+            changeRequest?.commitChanges() { (error) in
+                
+                
+                // [START basic_write]
+                self.ref?.child("Players").child(user.uid).setValue(player)
+                // [END basic_write]
+                Auth.auth().signIn(withEmail: self.playerEmailTextField.text!,password: self.playerPassword.text!)
+                //   self.performSegue(withIdentifier: "signIn", sender: nil)
+            }
+
+            
     
-        let player:[String : AnyObject] = ["firstName":playerFirstName as AnyObject,
-                                         "lastName":playerLastName as AnyObject,
-                                         "email":playerEmail as AnyObject,
-                                         "squad":playerJerseyNumber as AnyObject,
-                                         "position":playerPosition as AnyObject]
+            
+        })
         
-    
         
-        Auth.auth().createUser(withEmail: playerEmail,
+      /*  Auth.auth().createUser(withEmail: playerEmail,
                                    password: playerPassword) { user, error in
         if error == nil {
             Auth.auth().signIn(withEmail: self.playerEmailTextField.text!,password: self.playerPassword.text!)
             
-            self.ref?.child("Players").child(playerFirstName).setValue(player)
+            self.ref?.child("Players").childByAutoId().setValue(player)
+           // self.ref?.child("Players").child(userID!).setValue(player)
             
             }
-        }
+        }*/
         
         
            dismiss(animated: true, completion: nil)
@@ -91,6 +127,17 @@ class NewPlayerController: UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        
+
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+    }
+
+    
  
     
 

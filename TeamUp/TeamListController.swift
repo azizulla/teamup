@@ -9,59 +9,129 @@
 import UIKit
 import CoreData
 import FirebaseDatabase
+import FirebaseAuth
 
-class TeamListController: UITableViewController {
+class TeamListController: UITableViewController, UISearchResultsUpdating {
     
-    let managedObjectContext = CoreDataStack().managedObjectContext
 
+    let searchController = UISearchController(searchResultsController: nil)
+    var players = [NSDictionary?]()
+    var filteredUsers = [NSDictionary?]()
+    
+    @IBOutlet var followPlayersTabelView: UITableView!
+ 
 
-    var players = [Players]()
     
     var ref:DatabaseReference?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // tableView.dataSource = dataSource
-        ref = Database.database().reference()
+      
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
+        ref = Database.database().reference()
         startObservingDatabase()
+        
         
     }
     func startObservingDatabase () {
-        ref?.child("Players").observe(.value, with: { (snapshot) in
-            var newItems = [Players]()
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        ref?.child("Players").queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
             
-            for itemSnapShot in snapshot.children {
-                let item = Players(snapshot: itemSnapShot as! DataSnapshot)
-                newItems.append(item)
+            
+            let key = snapshot.key
+            let snapshot = snapshot.value as? NSDictionary
+            snapshot?.setValue(key, forKey: "uid")
+            
+            if(key == userID)
+            {
+                print("Same as logged in user, so don't show!")
+            }
+            else
+            {
+                self.players.append(snapshot)
+                //insert the rows
+                 self.followPlayersTabelView.insertRows(at: [IndexPath(row:self.players.count-1,section:0)], with: UITableViewRowAnimation.automatic)
             }
             
-            self.players = newItems
-            self.tableView.reloadData()
             
-        })
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
     }
+
+
+        
     
    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //    guard let section = fetchedResultsController.sections?[section] else { return 0 }
         //    return section.numberOfObjects
-        return players.count
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return filteredUsers.count
+        }
+       // return self.usersArray.count
+         return players.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let playerscell = tableView.dequeueReusableCell(withIdentifier: "PlayersCell", for: indexPath) as? PlayersCell
         
-        let object = players[indexPath.row]
-        playerscell?.friendNameLabel.text = object.firstName
+       // let object = players[indexPath.row]
+       // playerscell?.friendNameLabel.text = object.firstName
+      
+        let user : NSDictionary?
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            
+            user = filteredUsers[indexPath.row]
+        }
+        else
+        {
+            user = self.players[indexPath.row]
+        }
+        playerscell?.friendNameLabel.text = user?["firstName"] as? String
+        
+        //cell.textLabel?.text = user?["name"] as? String
+       // cell.detailTextLabel?.text = user?["handle"] as? String
         
         return playerscell!
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+// --- search
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContent(searchText: self.searchController.searchBar.text!)
+        
+    }
+    
+    func filterContent(searchText:String)
+    {
+        self.filteredUsers = self.players.filter{ user in
+            
+            let username = user?["firstName"] as? String
+          
+            return(username?.lowercased().contains(searchText.lowercased()))!
+            
+        }
+        
+        tableView.reloadData()
+    }
+
+// --- MARK: Navigation
+/*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showPlayerInfo"{
             
@@ -72,7 +142,7 @@ class TeamListController: UITableViewController {
             
             
         }
-    }
+    }*/
     
 }
 

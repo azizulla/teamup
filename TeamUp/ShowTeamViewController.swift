@@ -89,8 +89,17 @@ class ShowTeamViewController: UITableViewController  {
             addTaskController.managedObjectContext = self.managedObjectContext
             
             }
+            
+        else if segue.identifier == "showTeam"{
+            
+            
+            guard let detailVC = segue.destination as? TeamProfileView, let indexPath = tableView.indexPathForSelectedRow else{ return }
+            
+           // detailVC.selectedTeam = team[indexPath.row]
+            detailVC.selectedTeam = team[indexPath.row]
+            
+            }
+
         }
-    
-    
-    
+
 }

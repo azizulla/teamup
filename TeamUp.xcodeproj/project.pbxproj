@@ -13,7 +13,6 @@
 		8F42BED11FBD557B00A5542D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F42BED01FBD557B00A5542D /* Assets.xcassets */; };
 		8F42BED41FBD557B00A5542D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F42BED21FBD557B00A5542D /* LaunchScreen.storyboard */; };
 		8F42BEDC1FBD559300A5542D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F42BEDB1FBD559300A5542D /* CoreDataStack.swift */; };
-		8F42BEDF1FBD569900A5542D /* TeamUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F42BEDD1FBD569800A5542D /* TeamUp.xcdatamodeld */; };
 		8F42BEE31FBD590400A5542D /* AddTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F42BEE21FBD590400A5542D /* AddTaskController.swift */; };
 		8F44F0F11FED8251009533E1 /* NewPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0EC1FED8251009533E1 /* NewPlayerController.swift */; };
 		8F44F0F21FED8251009533E1 /* playerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0ED1FED8251009533E1 /* playerProfileViewController.swift */; };
@@ -22,9 +21,18 @@
 		8F44F0F91FEF24A8009533E1 /* TeamDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0F81FEF24A8009533E1 /* TeamDataSource.swift */; };
 		8F44F0FE1FEF268B009533E1 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0FD1FEF268B009533E1 /* Players.swift */; };
 		8F44F1001FEF3BA5009533E1 /* TeamListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */; };
+		8F582D9C2023EAC300E9BFE2 /* TeamSquadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F582D9B2023EAC300E9BFE2 /* TeamSquadListViewController.swift */; };
+		8F6DCCD81FF5F3F50058EA30 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DCCD71FF5F3F50058EA30 /* RequestViewController.swift */; };
+		8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */; };
 		8F95ED611FEC66380010DD2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */; };
 		8F95ED651FEC88040010DD2E /* ShowTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */; };
+		8FA08F0720090D7E00BBA105 /* SearchPlayersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */; };
+		8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */; };
 		8FF4FA311FECDBA300B30B34 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF4FA301FECDBA300B30B34 /* Team.swift */; };
+		8FFD04B1201E4C2A002BBCA3 /* ProfileTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD04B0201E4C2A002BBCA3 /* ProfileTeamCell.swift */; };
+		8FFD04B3201E4EC5002BBCA3 /* ProfileTeamListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD04B2201E4EC5002BBCA3 /* ProfileTeamListController.swift */; };
+		8FFD04B5201E916A002BBCA3 /* SearchTeamList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD04B4201E916A002BBCA3 /* SearchTeamList.swift */; };
+		8FFD04BF20202CA5002BBCA3 /* saved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD04BE20202CA4002BBCA3 /* saved.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +44,6 @@
 		8F42BED31FBD557B00A5542D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F42BED51FBD557B00A5542D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F42BEDB1FBD559300A5542D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		8F42BEDE1FBD569800A5542D /* TeamUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamUp.xcdatamodel; sourceTree = "<group>"; };
 		8F42BEE21FBD590400A5542D /* AddTaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTaskController.swift; path = ../AddTaskController.swift; sourceTree = "<group>"; };
 		8F44F0EC1FED8251009533E1 /* NewPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlayerController.swift; sourceTree = "<group>"; };
 		8F44F0ED1FED8251009533E1 /* playerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerProfileViewController.swift; sourceTree = "<group>"; };
@@ -45,9 +52,18 @@
 		8F44F0F81FEF24A8009533E1 /* TeamDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDataSource.swift; sourceTree = "<group>"; };
 		8F44F0FD1FEF268B009533E1 /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListController.swift; sourceTree = "<group>"; };
+		8F582D9B2023EAC300E9BFE2 /* TeamSquadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSquadListViewController.swift; sourceTree = "<group>"; };
+		8F6DCCD71FF5F3F50058EA30 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSystem.swift; sourceTree = "<group>"; };
 		8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTeamViewController.swift; sourceTree = "<group>"; };
+		8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlayersCell.swift; sourceTree = "<group>"; };
+		8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamProfileView.swift; sourceTree = "<group>"; };
 		8FF4FA301FECDBA300B30B34 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		8FFD04B0201E4C2A002BBCA3 /* ProfileTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTeamCell.swift; sourceTree = "<group>"; };
+		8FFD04B2201E4EC5002BBCA3 /* ProfileTeamListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTeamListController.swift; sourceTree = "<group>"; };
+		8FFD04B4201E916A002BBCA3 /* SearchTeamList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTeamList.swift; sourceTree = "<group>"; };
+		8FFD04BE20202CA4002BBCA3 /* saved.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = saved.swift; sourceTree = "<group>"; };
 		EC57DCB56CE6E3D733A9F459 /* Pods-TeamUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamUp/Pods-TeamUp.release.xcconfig"; sourceTree = "<group>"; };
 		F4A91B6A946C2CE1E94A26DD /* Pods-TeamUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamUp/Pods-TeamUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +97,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F0698222021522E00F0E968 /* Player files */ = {
+			isa = PBXGroup;
+			children = (
+				8F44F0ED1FED8251009533E1 /* playerProfileViewController.swift */,
+				8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */,
+				8FFD04B2201E4EC5002BBCA3 /* ProfileTeamListController.swift */,
+				8F44F0F01FED8251009533E1 /* PlayersCell.swift */,
+				8FFD04B0201E4C2A002BBCA3 /* ProfileTeamCell.swift */,
+			);
+			name = "Player files";
+			sourceTree = "<group>";
+		};
 		8F42BEBD1FBD557B00A5542D = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +130,8 @@
 		8F42BEC81FBD557B00A5542D /* TeamUp */ = {
 			isa = PBXGroup;
 			children = (
+				8FFD04BE20202CA4002BBCA3 /* saved.swift */,
+				8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */,
 				8F42BEC91FBD557B00A5542D /* AppDelegate.swift */,
 				8F42BEDB1FBD559300A5542D /* CoreDataStack.swift */,
 				8F42BECD1FBD557B00A5542D /* Main.storyboard */,
@@ -113,11 +143,11 @@
 				8F44F0FD1FEF268B009533E1 /* Players.swift */,
 				8F44F0FA1FEF257B009533E1 /* login */,
 				8F436E071FD2010A00CC15D8 /* team files */,
-				8F42BEDD1FBD569800A5542D /* TeamUp.xcdatamodeld */,
-				8F44F0ED1FED8251009533E1 /* playerProfileViewController.swift */,
+				8F0698222021522E00F0E968 /* Player files */,
+				8FFD04B4201E916A002BBCA3 /* SearchTeamList.swift */,
+				8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */,
 				8F44F0F81FEF24A8009533E1 /* TeamDataSource.swift */,
-				8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */,
-				8F44F0F01FED8251009533E1 /* PlayersCell.swift */,
+				8F6DCCD71FF5F3F50058EA30 /* RequestViewController.swift */,
 			);
 			path = TeamUp;
 			sourceTree = "<group>";
@@ -125,8 +155,10 @@
 		8F436E071FD2010A00CC15D8 /* team files */ = {
 			isa = PBXGroup;
 			children = (
+				8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */,
 				8F42BEE21FBD590400A5542D /* AddTaskController.swift */,
 				8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */,
+				8F582D9B2023EAC300E9BFE2 /* TeamSquadListViewController.swift */,
 			);
 			name = "team files";
 			sourceTree = "<group>";
@@ -278,17 +310,25 @@
 			files = (
 				8FF4FA311FECDBA300B30B34 /* Team.swift in Sources */,
 				8F42BEE31FBD590400A5542D /* AddTaskController.swift in Sources */,
+				8F6DCCD81FF5F3F50058EA30 /* RequestViewController.swift in Sources */,
 				8F44F0FE1FEF268B009533E1 /* Players.swift in Sources */,
+				8FFD04B1201E4C2A002BBCA3 /* ProfileTeamCell.swift in Sources */,
 				8F42BEDC1FBD559300A5542D /* CoreDataStack.swift in Sources */,
 				8F44F0F71FEDC319009533E1 /* login.swift in Sources */,
 				8F44F0F21FED8251009533E1 /* playerProfileViewController.swift in Sources */,
 				8F44F1001FEF3BA5009533E1 /* TeamListController.swift in Sources */,
 				8F42BECA1FBD557B00A5542D /* AppDelegate.swift in Sources */,
 				8F95ED651FEC88040010DD2E /* ShowTeamViewController.swift in Sources */,
+				8FA08F0720090D7E00BBA105 /* SearchPlayersCell.swift in Sources */,
+				8FFD04B5201E916A002BBCA3 /* SearchTeamList.swift in Sources */,
+				8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */,
+				8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */,
 				8F44F0F11FED8251009533E1 /* NewPlayerController.swift in Sources */,
+				8F582D9C2023EAC300E9BFE2 /* TeamSquadListViewController.swift in Sources */,
 				8F44F0F91FEF24A8009533E1 /* TeamDataSource.swift in Sources */,
 				8F44F0F51FED8251009533E1 /* PlayersCell.swift in Sources */,
-				8F42BEDF1FBD569900A5542D /* TeamUp.xcdatamodeld in Sources */,
+				8FFD04BF20202CA5002BBCA3 /* saved.swift in Sources */,
+				8FFD04B3201E4EC5002BBCA3 /* ProfileTeamListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,19 +495,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8F42BEDD1FBD569800A5542D /* TeamUp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8F42BEDE1FBD569800A5542D /* TeamUp.xcdatamodel */,
-			);
-			currentVersion = 8F42BEDE1FBD569800A5542D /* TeamUp.xcdatamodel */;
-			path = TeamUp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8F42BEBE1FBD557B00A5542D /* Project object */;
 }

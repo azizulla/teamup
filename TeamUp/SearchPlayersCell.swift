@@ -1,5 +1,5 @@
 //
-//  PlayersCell.swift
+//  SearchPlayersCell.swift
 //  TeamUp
 //
 //  Created by Aziz on 2017-11-29.
@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class PlayersCell: UITableViewCell {
+class SearchPlayersCell: UITableViewCell {
     
     var ref:DatabaseReference?
     @IBOutlet weak var friendNameLabel: UILabel!
@@ -19,19 +19,19 @@ class PlayersCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      /*  
+        /*
          self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-       
-        profileImage.layer.cornerRadius = 10
- */
-         self.profileImage.layer.cornerRadius = 10
+         self.clipsToBounds = true
+         
+         profileImage.layer.cornerRadius = 10
+         */
+        self.profileImage.layer.cornerRadius = 10
         self.profileImage.clipsToBounds = true
     }
     
     
     
     @IBAction func playerInvitation(_ sender: Any) {
-     
+        
     }
 }
