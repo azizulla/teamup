@@ -235,7 +235,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muQ-Oc-lt9">
-                                            <rect key="frame" x="317" y="39" width="36" height="30"/>
+                                            <rect key="frame" x="317" y="38" width="35" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Invite"/>
                                             <connections>
@@ -243,7 +243,7 @@
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="867366" translatesAutoresizingMaskIntoConstraints="NO" id="wlk-JX-UkK">
-                                            <rect key="frame" x="17" y="3" width="68" height="71"/>
+                                            <rect key="frame" x="17" y="2" width="67" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES"/>
@@ -253,7 +253,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="player name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d90-dE-76K">
-                                            <rect key="frame" x="93" y="31" width="216" height="24"/>
+                                            <rect key="frame" x="93" y="30" width="216" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -477,6 +477,10 @@
                                     <action selector="uploadImageButton:" destination="6Bo-dm-yv7" eventType="touchUpInside" id="fX7-hR-cDW"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-Bs-uJi">
+                                <rect key="frame" x="81" y="196" width="214" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -488,6 +492,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageUploadProgressView" destination="xZF-Bs-uJi" id="BVU-Rd-wYR"/>
                         <outlet property="playerEmailTextField" destination="DN8-yI-Jn6" id="vGs-d4-0ML"/>
                         <outlet property="playerFirstNameTextField" destination="i7F-FX-ZRb" id="Muu-Nc-Drg"/>
                         <outlet property="playerJerseyNumberTextField" destination="Z6o-lz-dcx" id="Cr2-aY-L5P"/>
@@ -496,11 +501,12 @@
                         <outlet property="playerPositionTextField" destination="CDV-p4-E39" id="mXn-nr-nqW"/>
                         <outlet property="playerRetypePassword" destination="wMm-Xe-Ulu" id="UKk-52-10R"/>
                         <outlet property="profileImage" destination="FVM-Y6-m0w" id="bXN-Aj-aTR"/>
+                        <outlet property="uploadButton" destination="Zrp-tb-wvA" id="0NR-U4-yvq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAu-SD-xKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-504"/>
+            <point key="canvasLocation" x="1477.5999999999999" y="-504.19790104947532"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rrm-4P-bG8">

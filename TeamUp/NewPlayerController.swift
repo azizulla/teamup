@@ -15,6 +15,10 @@ import Firebase
 class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref:DatabaseReference?
+    let storageRef = Storage.storage().reference()
+    var imageUploadManager: ImageUploadManager?
+    
+   // var storageRef = Storage().reference()
     
     let imagePicker = UIImagePickerController()
     
@@ -29,10 +33,13 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var imageUploadProgressView: UIProgressView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         ref = Database.database().reference()
         profileImage.image = UIImage(named: "867366")
     }
 
@@ -46,24 +53,42 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
         present(imagePickerButton, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-    
-    // let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-      let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        profileImage.image = image
-        profileImage.contentMode = .scaleAspectFill
-        dismiss(animated: true, completion:nil)
-    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
-        dismiss(animated: true, completion:nil)
-    }
-
     
   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let user = Auth.auth().currentUser?.uid
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    
+        profileImage.image = image
+        profileImage.contentMode = .scaleAspectFill
+    
+         let imageData = UIImagePNGRepresentation(self.profileImage.image!)
+        
+        let storageRef = Storage.storage().reference().child("players/\(user)/profile-400x400.png")
+        let metadata = StorageMetadata(dictionary: ["contentType": "image/png"])
+       
+        
+        let uploadTask = storageRef.putData(imageData!, metadata: metadata) { (metadata, error) in
+            guard metadata != nil else {
+                print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
+                return
+            }
+            
+            //let storageRef = Storage.storage().reference().child("shared/profile-80x80.png")
+            //storageRef.putData(imageData!, metadata: StorageMetadata(dictionary: ["contentType": "image/png"]))
+            
+            print("Uploda complete! \(metadata?.downloadURL())")
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+   
     
 // ---  saving the player
     
@@ -100,7 +125,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
               //  self.showMessagePrompt(error!.localizedDescription)
                 return
             }
-            
+
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = playerFirstName
             let userID = user.uid

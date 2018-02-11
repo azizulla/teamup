@@ -26,6 +26,7 @@
 		8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */; };
 		8F95ED611FEC66380010DD2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */; };
 		8F95ED651FEC88040010DD2E /* ShowTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */; };
+		8F9AEF3E202AA3D80029BA13 /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9AEF3D202AA3D80029BA13 /* ImageUploadManager.swift */; };
 		8FA08F0720090D7E00BBA105 /* SearchPlayersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */; };
 		8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */; };
 		8FF4FA311FECDBA300B30B34 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF4FA301FECDBA300B30B34 /* Team.swift */; };
@@ -57,6 +58,7 @@
 		8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSystem.swift; sourceTree = "<group>"; };
 		8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTeamViewController.swift; sourceTree = "<group>"; };
+		8F9AEF3D202AA3D80029BA13 /* ImageUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
 		8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlayersCell.swift; sourceTree = "<group>"; };
 		8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamProfileView.swift; sourceTree = "<group>"; };
 		8FF4FA301FECDBA300B30B34 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				8F44F0F61FEDC319009533E1 /* login.swift */,
 				8F44F0EC1FED8251009533E1 /* NewPlayerController.swift */,
+				8F9AEF3D202AA3D80029BA13 /* ImageUploadManager.swift */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */,
 				8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */,
 				8F44F0F11FED8251009533E1 /* NewPlayerController.swift in Sources */,
+				8F9AEF3E202AA3D80029BA13 /* ImageUploadManager.swift in Sources */,
 				8F582D9C2023EAC300E9BFE2 /* TeamSquadListViewController.swift in Sources */,
 				8F44F0F91FEF24A8009533E1 /* TeamDataSource.swift in Sources */,
 				8F44F0F51FED8251009533E1 /* PlayersCell.swift in Sources */,
