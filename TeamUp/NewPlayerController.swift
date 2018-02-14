@@ -40,7 +40,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
          ref = Database.database().reference()
-        profileImage.image = UIImage(named: "867366")
+   //     profileImage.image = UIImage(named: "867366")
     }
 
     @IBAction func uploadImageButton(_ sender: Any) {
@@ -77,7 +77,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func save(_ sender: Any) {
      
-    let userID = Auth.auth().currentUser?.uid
+  //  let userID = Auth.auth().currentUser?.uid
         
     ref = Database.database().reference().root
         
@@ -134,7 +134,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
             }
 
             
-    // image upload
+/*    // image upload
             
             let imageData = UIImagePNGRepresentation(self.profileImage.image!)
             
@@ -159,7 +159,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
             }
 
             
-       
+       */
             
     
             
@@ -198,6 +198,6 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
     
 
 
-    }
+}
 
 

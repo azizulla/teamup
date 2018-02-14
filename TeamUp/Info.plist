@@ -36,5 +36,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>&quot;Need this to Acess the Photo library&quot;</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>&quot;Need this to find user location&quot;</string>
 </dict>
 </plist>
