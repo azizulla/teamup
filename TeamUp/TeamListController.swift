@@ -99,6 +99,7 @@ class TeamListController: UITableViewController, UISearchResultsUpdating {
             user = self.players[indexPath.row]
         }
         playerscell?.friendNameLabel.text = user?["firstName"] as? String
+       // playerscell?.profileImage.image = user?[""] as? String
         
         //cell.textLabel?.text = user?["name"] as? String
         // cell.detailTextLabel?.text = user?["handle"] as? String

@@ -16,7 +16,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var ref:DatabaseReference?
     let storageRef = Storage.storage().reference()
-    var imageUploadManager: ImageUploadManager?
+ //  var imageUploadManager: ImageUploadManager?
     
    // var storageRef = Storage().reference()
     
@@ -60,29 +60,12 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let user = Auth.auth().currentUser?.uid
+        
+        
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-    
         profileImage.image = image
         profileImage.contentMode = .scaleAspectFill
     
-         let imageData = UIImagePNGRepresentation(self.profileImage.image!)
-        
-        let storageRef = Storage.storage().reference().child("players/\(user)/profile-400x400.png")
-        let metadata = StorageMetadata(dictionary: ["contentType": "image/png"])
-       
-        
-        let uploadTask = storageRef.putData(imageData!, metadata: metadata) { (metadata, error) in
-            guard metadata != nil else {
-                print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
-                return
-            }
-            
-            //let storageRef = Storage.storage().reference().child("shared/profile-80x80.png")
-            //storageRef.putData(imageData!, metadata: StorageMetadata(dictionary: ["contentType": "image/png"]))
-            
-            print("Uploda complete! \(metadata?.downloadURL())")
-        }
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -128,7 +111,9 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
 
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = playerFirstName
+            
             let userID = user.uid
+            
             
             let player:[String : AnyObject] = ["firstName":playerFirstName as AnyObject,
                                                "lastName":playerLastName as AnyObject,
@@ -136,7 +121,7 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
                                                "squad":playerJerseyNumber as AnyObject,
                                                "position":playerPosition as AnyObject,
                                                "uid":userID as AnyObject]
-
+            
             // Commit profile changes to server
             changeRequest?.commitChanges() { (error) in
                 
@@ -148,6 +133,33 @@ class NewPlayerController: UIViewController, UIImagePickerControllerDelegate, UI
                 //   self.performSegue(withIdentifier: "signIn", sender: nil)
             }
 
+            
+    // image upload
+            
+            let imageData = UIImagePNGRepresentation(self.profileImage.image!)
+            
+            let storageRef = Storage.storage().reference().child("players/\(user.uid)/profile-400x400.png")
+            let metadata = StorageMetadata(dictionary: ["contentType": "image/png"])
+            
+            
+            let uploadTask = storageRef.putData(imageData!, metadata: metadata) { (metadata, error) in
+                guard metadata != nil else {
+                    print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
+                    return
+                }
+                
+                //let storageRef = Storage.storage().reference().child("shared/profile-80x80.png")
+                //storageRef.putData(imageData!, metadata: StorageMetadata(dictionary: ["contentType": "image/png"]))
+                
+                print("Uploda complete! \(metadata?.downloadURL())")
+                let imageurl = metadata?.downloadURL()?.absoluteString
+                self.ref?.child("Players").child(user.uid).child("profileImageUrl").setValue(imageurl)
+                
+            
+            }
+
+            
+       
             
     
             

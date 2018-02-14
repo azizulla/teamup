@@ -30,7 +30,7 @@ class AddTaskController: UIViewController {
         
         
         
-        print("AddTaskController context: \(managedObjectContext.description)")
+      //  print("AddTaskController context: \(managedObjectContext.description)")
     }
 
     @IBAction func save(_ sender: Any) {
