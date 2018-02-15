@@ -60,7 +60,7 @@ class AddTaskController: UIViewController {
         
          ref?.child("Team").child(key!).setValue(team)
         
-        managedObjectContext.saveChanges()
+      
         
         dismiss(animated: true, completion: nil)
     }

@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-       
-        //FIREApp.configure()
+
         
         return true
     }

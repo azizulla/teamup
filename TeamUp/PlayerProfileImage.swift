@@ -66,7 +66,10 @@ class PlayerProfileImage: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let imageData = UIImagePNGRepresentation(self.profileImage.image!)
         
-        let storageRef = Storage.storage().reference().child("players/\(userID)/profile-400x400.png")
+        //let storageRef = Storage.storage().reference().child("players/\(userID)/profile-400x400.png")
+        
+        let storageRef = Storage.storage().reference().child("players").child(userID!).child("profile-400x400.png")
+        
         let metadata = StorageMetadata(dictionary: ["contentType": "image/png"])
         
         

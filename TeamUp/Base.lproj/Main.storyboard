@@ -649,8 +649,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue"/>
                                 <connections>
-                                    <action selector="playerDetail:" destination="5qI-OF-ZRj" eventType="touchUpInside" id="ECi-fv-trP"/>
-                                    <segue destination="k29-z5-psA" kind="show" id="nhL-EK-W2B"/>
+                                    <segue destination="k29-z5-psA" kind="show" id="eZ0-cS-93c"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your a teamup member!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-Hk-v9p">
