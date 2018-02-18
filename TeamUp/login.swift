@@ -9,23 +9,40 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Firebase
 
 class LoginViewController: UIViewController {
     
     // MARK: Constants
     let loginToList = "LoginToList"
-    
+     weak var currentUser: User?
     // MARK: Outlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth.auth().addStateDidChangeListener() { auth, user in
+       /* Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: self.loginToList, sender: nil)
+                print(user)
             }
-        }
+        }*/
+        
+      
+            
+            /* Add a state change listener to firebase
+             to get a notification if the user signed in.
+             */
+            Auth.auth().addStateDidChangeListener({ (auth, user) in
+                if user != nil && user != self.currentUser {
+                    self.currentUser = user
+                    self.performSegue(withIdentifier: self.loginToList,
+                                      sender: self)
+                    print(" user already loged in")
+                }
+            })
+
 
         
 

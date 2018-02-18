@@ -21,6 +21,8 @@
 		8F44F0F91FEF24A8009533E1 /* TeamDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0F81FEF24A8009533E1 /* TeamDataSource.swift */; };
 		8F44F0FE1FEF268B009533E1 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0FD1FEF268B009533E1 /* Players.swift */; };
 		8F44F1001FEF3BA5009533E1 /* TeamListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */; };
+		8F4C4F5E2038C60E00753F93 /* PickUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C4F5D2038C60D00753F93 /* PickUpCell.swift */; };
+		8F4C4F602038E36400753F93 /* PickUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C4F5F2038E36400753F93 /* PickUpProfileViewController.swift */; };
 		8F582D9C2023EAC300E9BFE2 /* TeamSquadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F582D9B2023EAC300E9BFE2 /* TeamSquadListViewController.swift */; };
 		8F6DCCD81FF5F3F50058EA30 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DCCD71FF5F3F50058EA30 /* RequestViewController.swift */; };
 		8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */; };
@@ -34,6 +36,10 @@
 		8F95ED611FEC66380010DD2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */; };
 		8F95ED651FEC88040010DD2E /* ShowTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */; };
 		8FA08F0720090D7E00BBA105 /* SearchPlayersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */; };
+		8FC5E67C20375139005A1FD2 /* NewPickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5E67B20375139005A1FD2 /* NewPickUpViewController.swift */; };
+		8FC5E67E20375554005A1FD2 /* NewPickUpDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5E67D20375554005A1FD2 /* NewPickUpDateTimeViewController.swift */; };
+		8FC5E68020375E44005A1FD2 /* PickUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5E67F20375E44005A1FD2 /* PickUpMainViewController.swift */; };
+		8FC5E6822037F7D7005A1FD2 /* SearchPickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5E6812037F7D7005A1FD2 /* SearchPickUpViewController.swift */; };
 		8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */; };
 		8FF4FA311FECDBA300B30B34 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF4FA301FECDBA300B30B34 /* Team.swift */; };
 		8FFD04B1201E4C2A002BBCA3 /* ProfileTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD04B0201E4C2A002BBCA3 /* ProfileTeamCell.swift */; };
@@ -59,6 +65,8 @@
 		8F44F0F81FEF24A8009533E1 /* TeamDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDataSource.swift; sourceTree = "<group>"; };
 		8F44F0FD1FEF268B009533E1 /* Players.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		8F44F0FF1FEF3BA5009533E1 /* TeamListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListController.swift; sourceTree = "<group>"; };
+		8F4C4F5D2038C60D00753F93 /* PickUpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpCell.swift; sourceTree = "<group>"; };
+		8F4C4F5F2038E36400753F93 /* PickUpProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpProfileViewController.swift; sourceTree = "<group>"; };
 		8F582D9B2023EAC300E9BFE2 /* TeamSquadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamSquadListViewController.swift; sourceTree = "<group>"; };
 		8F6DCCD71FF5F3F50058EA30 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		8F6DCCD91FF5F4760058EA30 /* FriendSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSystem.swift; sourceTree = "<group>"; };
@@ -72,6 +80,10 @@
 		8F95ED601FEC66380010DD2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F95ED641FEC88040010DD2E /* ShowTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTeamViewController.swift; sourceTree = "<group>"; };
 		8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlayersCell.swift; sourceTree = "<group>"; };
+		8FC5E67B20375139005A1FD2 /* NewPickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPickUpViewController.swift; sourceTree = "<group>"; };
+		8FC5E67D20375554005A1FD2 /* NewPickUpDateTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPickUpDateTimeViewController.swift; sourceTree = "<group>"; };
+		8FC5E67F20375E44005A1FD2 /* PickUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpMainViewController.swift; sourceTree = "<group>"; };
+		8FC5E6812037F7D7005A1FD2 /* SearchPickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPickUpViewController.swift; sourceTree = "<group>"; };
 		8FDB5B00201BA75B00B30FE3 /* TeamProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamProfileView.swift; sourceTree = "<group>"; };
 		8FF4FA301FECDBA300B30B34 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		8FFD04B0201E4C2A002BBCA3 /* ProfileTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTeamCell.swift; sourceTree = "<group>"; };
@@ -157,6 +169,7 @@
 				8F44F0FD1FEF268B009533E1 /* Players.swift */,
 				8F44F0FA1FEF257B009533E1 /* login */,
 				8F436E071FD2010A00CC15D8 /* team files */,
+				8FC5E67A203750E4005A1FD2 /* pickup */,
 				8F0698222021522E00F0E968 /* Player files */,
 				8FFD04B4201E916A002BBCA3 /* SearchTeamList.swift */,
 				8FA08F0620090D7E00BBA105 /* SearchPlayersCell.swift */,
@@ -191,6 +204,19 @@
 				8F6FA8A22034FAA600F0E006 /* WelcomeController.swift */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		8FC5E67A203750E4005A1FD2 /* pickup */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5E67B20375139005A1FD2 /* NewPickUpViewController.swift */,
+				8FC5E67D20375554005A1FD2 /* NewPickUpDateTimeViewController.swift */,
+				8FC5E67F20375E44005A1FD2 /* PickUpMainViewController.swift */,
+				8FC5E6812037F7D7005A1FD2 /* SearchPickUpViewController.swift */,
+				8F4C4F5D2038C60D00753F93 /* PickUpCell.swift */,
+				8F4C4F5F2038E36400753F93 /* PickUpProfileViewController.swift */,
+			);
+			name = pickup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +361,7 @@
 				8F6FA8992034CC7900F0E006 /* NewPlayerSignUpController.swift in Sources */,
 				8F44F0FE1FEF268B009533E1 /* Players.swift in Sources */,
 				8FFD04B1201E4C2A002BBCA3 /* ProfileTeamCell.swift in Sources */,
+				8FC5E67C20375139005A1FD2 /* NewPickUpViewController.swift in Sources */,
 				8F42BEDC1FBD559300A5542D /* CoreDataStack.swift in Sources */,
 				8F44F0F71FEDC319009533E1 /* login.swift in Sources */,
 				8F44F0F21FED8251009533E1 /* playerProfileViewController.swift in Sources */,
@@ -344,16 +371,21 @@
 				8F6FA8972034914500F0E006 /* PlayerProfileImage.swift in Sources */,
 				8F95ED651FEC88040010DD2E /* ShowTeamViewController.swift in Sources */,
 				8FA08F0720090D7E00BBA105 /* SearchPlayersCell.swift in Sources */,
+				8FC5E68020375E44005A1FD2 /* PickUpMainViewController.swift in Sources */,
 				8FFD04B5201E916A002BBCA3 /* SearchTeamList.swift in Sources */,
 				8FDB5B01201BA75B00B30FE3 /* TeamProfileView.swift in Sources */,
+				8FC5E67E20375554005A1FD2 /* NewPickUpDateTimeViewController.swift in Sources */,
 				8F6DCCDA1FF5F4760058EA30 /* FriendSystem.swift in Sources */,
 				8F44F0F11FED8251009533E1 /* NewPlayerController.swift in Sources */,
 				8F6FA89D2034EAE800F0E006 /* NewPlayerSportDetailController.swift in Sources */,
 				8F582D9C2023EAC300E9BFE2 /* TeamSquadListViewController.swift in Sources */,
+				8FC5E6822037F7D7005A1FD2 /* SearchPickUpViewController.swift in Sources */,
+				8F4C4F5E2038C60E00753F93 /* PickUpCell.swift in Sources */,
 				8F44F0F91FEF24A8009533E1 /* TeamDataSource.swift in Sources */,
 				8F6FA8A32034FAA600F0E006 /* WelcomeController.swift in Sources */,
 				8F6FA89B2034D5E600F0E006 /* NewPlayerDetailController.swift in Sources */,
 				8F44F0F51FED8251009533E1 /* PlayersCell.swift in Sources */,
+				8F4C4F602038E36400753F93 /* PickUpProfileViewController.swift in Sources */,
 				8FFD04BF20202CA5002BBCA3 /* saved.swift in Sources */,
 				8F6FA89F2034F2CF00F0E006 /* NewPlayerLocationController.swift in Sources */,
 				8FFD04B3201E4EC5002BBCA3 /* ProfileTeamListController.swift in Sources */,

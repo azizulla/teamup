@@ -16,8 +16,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     // MARK: UIPageViewControllerDataSource
     
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "sbRed"),
-                self.newVc(viewController: "sbBlue")]
+        return [self.newVc(viewController: "Team"),
+                self.newVc(viewController: "PickUp")]
     }()
     
     override func viewDidLoad() {
