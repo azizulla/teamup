@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
+    @IBAction func unwindToLogin(segue:UIStoryboardSegue) { }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        /* Auth.auth().addStateDidChangeListener() { auth, user in
@@ -37,15 +40,13 @@ class LoginViewController: UIViewController {
             Auth.auth().addStateDidChangeListener({ (auth, user) in
                 if user != nil && user != self.currentUser {
                     self.currentUser = user
-                    self.performSegue(withIdentifier: self.loginToList,
-                                      sender: self)
+                    self.performSegue(withIdentifier: self.loginToList, sender: self)
+           
                     print(" user already loged in")
-                }
+                } else { print(" no user is loged in ") }
             })
 
-
-        
-
+      
     }
     
     // MARK: Actions

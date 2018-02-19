@@ -17,8 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+       
         FirebaseApp.configure()
+        
+      /*
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let left = storyboard.instantiateViewController(withIdentifier: "Team")
+        let middle = storyboard.instantiateViewController(withIdentifier: "Middle")
+        let right = storyboard.instantiateViewController(withIdentifier: "PickUp")
+        let top = storyboard.instantiateViewController(withIdentifier: "Practice")
+        let bottom = storyboard.instantiateViewController(withIdentifier: "Bottom")
+        
+        let snapContainer = PageViewController.containerViewWith(left,
+                                                                          middleVC: middle,
+                                                                          rightVC: right,
+                                                                          topVC: top,
+                                                                          bottomVC: bottom)
+        self.window?.rootViewController = snapContainer
+        self.window?.makeKeyAndVisible()
+     */
+        
+        
+        
 
         
         return true

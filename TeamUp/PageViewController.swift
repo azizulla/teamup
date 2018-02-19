@@ -7,107 +7,161 @@
 //
 
 import UIKit
+import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import Firebase
 
-class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    
-    
-    var pageControl = UIPageControl()
-    
-    // MARK: UIPageViewControllerDataSource
-    
-    lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "Team"),
-                self.newVc(viewController: "PickUp")]
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.dataSource = self
-        self.delegate = self
-        
-        
-        
-        // This sets up the first view that will show up on our page control
-        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController],
-                               direction: .forward,
-                               animated: true,
-                               completion: nil)
-        }
-        
-        configurePageControl()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    func configurePageControl() {
-        // The total number of pages that are available is based on how many available colors we have.
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
-        self.pageControl.numberOfPages = orderedViewControllers.count
-        self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.black
-        self.pageControl.pageIndicatorTintColor = UIColor.white
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
-        self.view.addSubview(pageControl)
-    }
-    
-    func newVc(viewController: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
-    }
-    
-    
-    // MARK: Delegate methords
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
-    }
-    
-    // MARK: Data source functions.
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-            return nil
-        }
-        
-        let previousIndex = viewControllerIndex - 1
-        
-        // User is on the first view controller and swiped left to loop to
-        // the last view controller.
-        guard previousIndex >= 0 else {
-            return orderedViewControllers.last
-            // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
-        }
-        
-        guard orderedViewControllers.count > previousIndex else {
-            return nil
-        }
-        
-        return orderedViewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-            return nil
-        }
-        
-        let nextIndex = viewControllerIndex + 1
-        let orderedViewControllersCount = orderedViewControllers.count
-        
-        // User is on the last view controller and swiped right to loop to
-        // the first view controller.
-        guard orderedViewControllersCount != nextIndex else {
-            return orderedViewControllers.first
-            // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
-        }
-        
-        guard orderedViewControllersCount > nextIndex else {
-            return nil
-        }
-        
-        return orderedViewControllers[nextIndex]
-    }
-    
-    
+
+protocol SnapContainerViewControllerDelegate {
+    func outerScrollViewShouldScroll() -> Bool
 }
 
+//class PageViewController: UIPageViewController, UIPageViewControllerDelegate,  {
+class PageViewController: UIViewController, UIScrollViewDelegate {
+    
+    
+    
+   
+    
+        /* 
+     weak var currentUser: User?
+        let loginToList = "LoginToList"
+    
+        var topVc: UIViewController?
+        var leftVc: UIViewController!
+        var middleVc: UIViewController!
+        var rightVc: UIViewController!
+        var bottomVc: UIViewController?
+        
+        var directionLockDisabled: Bool!
+        
+        var horizontalViews = [UIViewController]()
+        var veritcalViews = [UIViewController]()
+        
+        var initialContentOffset = CGPoint() // scrollView initial offset
+        var middleVertScrollVc: VerticalScrollViewController!
+        var scrollView: UIScrollView!
+        var delegate: SnapContainerViewControllerDelegate?
+        
+        class func containerViewWith(_ leftVC: UIViewController,
+                                     middleVC: UIViewController,
+                                     rightVC: UIViewController,
+                                     topVC: UIViewController?=nil,
+                                     bottomVC: UIViewController?=nil,
+                                     directionLockDisabled: Bool?=false) -> PageViewController {
+            let container = PageViewController()
+            
+            container.directionLockDisabled = directionLockDisabled
+            
+            container.topVc = topVC
+            container.leftVc = leftVC
+            container.middleVc = middleVC
+            container.rightVc = rightVC
+            container.bottomVc = bottomVC
+            return container
+        }
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+          /*  Auth.auth().addStateDidChangeListener({ (auth, user) in
+                if user != nil && user != self.currentUser {
+                    
+                    print(" user already loged in")
+                } else {print(" no user is loged in")
+                
+                   // self.currentUser = user
+                    self.performSegue(withIdentifier: self.loginToList,
+                                      sender: self)
+                
+                }
+            })
+
+            */
+            
+            setupVerticalScrollView()
+            setupHorizontalScrollView()
+        }
+        
+        func setupVerticalScrollView() {
+            middleVertScrollVc = VerticalScrollViewController.verticalScrollVcWith(middleVc: middleVc,
+                                                                                   topVc: topVc,
+                                                                                   bottomVc: bottomVc)
+            delegate = middleVertScrollVc
+        }
+        
+        func setupHorizontalScrollView() {
+            scrollView = UIScrollView()
+            scrollView.isPagingEnabled = true
+            scrollView.showsHorizontalScrollIndicator = false
+            scrollView.bounces = false
+            
+            let view = (
+                x: self.view.bounds.origin.x,
+                y: self.view.bounds.origin.y,
+                width: self.view.bounds.width,
+                height: self.view.bounds.height
+            )
+            
+            scrollView.frame = CGRect(x: view.x,
+                                      y: view.y,
+                                      width: view.width,
+                                      height: view.height
+            )
+            
+            self.view.addSubview(scrollView)
+            
+            let scrollWidth  = 3 * view.width
+            let scrollHeight  = view.height
+            scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
+            
+            leftVc.view.frame = CGRect(x: 0,
+                                       y: 0,
+                                       width: view.width,
+                                       height: view.height
+            )
+            
+            middleVertScrollVc.view.frame = CGRect(x: view.width,
+                                                   y: 0,
+                                                   width: view.width,
+                                                   height: view.height
+            )
+            
+            rightVc.view.frame = CGRect(x: 2 * view.width,
+                                        y: 0,
+                                        width: view.width,
+                                        height: view.height
+            )
+            
+            addChildViewController(leftVc)
+            addChildViewController(middleVertScrollVc)
+            addChildViewController(rightVc)
+            
+            scrollView.addSubview(leftVc.view)
+            scrollView.addSubview(middleVertScrollVc.view)
+            scrollView.addSubview(rightVc.view)
+            
+            leftVc.didMove(toParentViewController: self)
+            middleVertScrollVc.didMove(toParentViewController: self)
+            rightVc.didMove(toParentViewController: self)
+            
+            scrollView.contentOffset.x = middleVertScrollVc.view.frame.origin.x
+            scrollView.delegate = self
+        }
+        
+        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+            self.initialContentOffset = scrollView.contentOffset
+        }
+        
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if delegate != nil && !delegate!.outerScrollViewShouldScroll() && !directionLockDisabled {
+                let newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
+                
+                // Setting the new offset to the scrollView makes it behave like a proper
+                // directional lock, that allows you to scroll in only one direction at any given time
+                self.scrollView!.setContentOffset(newOffset, animated:  false)
+            }
+        }*/
+        
+}
