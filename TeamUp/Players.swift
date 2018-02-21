@@ -16,55 +16,54 @@ class Players: NSObject{
    // let ownedPartiesKeys: [String: Any]?
    // let attendingPartiesKeys: [String: Any]?
 
+    var email: String?
+    
     var firstName: String?
     var lastName: String?
-    var email: String?
+    var gender: String?
+    var phone: String?
     var position: String?
-    var squad: String?
+    
+    var kitNumber: String?
+    
     var uid: String!
-    
-   // var profileImage: image
     var profileImageUrl: String?
-    
     var teamplayer = [Team]()
     
   //  var favorite: String
     
-    init(firstName: String, lastName: String, email: String, position: String, squad: String, userID: String, teamplayer: [Team], profileImageUrl: String) {
+    init(firstName: String, lastName: String, email: String, position: String, userID: String, teamplayer: [Team], profileImageUrl: String, gender: String, kitNumber: String) {
         
    
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
+        self.phone = position
         self.position = position
-        self.squad = squad
-       // self.team = team
+        self.gender = gender
+        self.kitNumber = kitNumber
+
+        
         self.profileImageUrl = profileImageUrl
         self.uid = userID
         self.ref = nil
         
-        self.teamplayer = (teamplayer )
         
     }
     
     init(snapshot: DataSnapshot) {
         
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        //teamName = snapshotValue["name"] as? String
+      
         firstName = snapshotValue["firstName"] as? String
         lastName = snapshotValue["lastName"] as? String
         email = snapshotValue["email"] as? String
         position = snapshotValue["position"] as? String
-        squad = snapshotValue["squad"] as? String
         uid = snapshotValue["uid"] as? String
+        gender = snapshotValue["gender"] as? String
+        phone = snapshotValue["phone"] as? String
         profileImageUrl = snapshotValue["profileImageUrl"] as? String
-     //    team = (snapshotValue["team"] as? String)!
-        
-  //      team = snapshotValue["team"] as? String
-    
-    //    teamplayer = snapshotValue["team"] as! [Team]
-        
-        print(firstName ?? "players", squad ?? 12)
+        kitNumber = snapshotValue["kitNumber"] as? String
         
         ref = snapshot.ref
     }

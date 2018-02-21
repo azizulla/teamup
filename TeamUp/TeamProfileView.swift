@@ -35,19 +35,12 @@ class TeamProfileView: UIViewController {
         teamName.text = selectedTeam.teamName
         teamSquadsize.text = selectedTeam.teamUid
         ref = Database.database().reference()
-
-}
-    
-    
-    
-//  --- join Button    
-    
-    @IBAction func joinTeam(_ sender: Any) {
+        
+        
         
         let userID = Auth.auth().currentUser?.uid
         ref = Database.database().reference()
         let currenTeam = selectedTeam.teamUid
-        
         
         ref?.child("Players").child(userID!).child("team").observeSingleEvent(of: .value, with: { (snapshot) in
             // databaseRef.child("following").child(self.loggedInUser!.uid).child(self.otherUser?["uid"] as! String).observe(.value, with: { (snapshot) in
@@ -69,8 +62,25 @@ class TeamProfileView: UIViewController {
             
             print(error.localizedDescription)
         }
+        
+        
 
-     
+}
+    
+    
+    
+//  --- join Button    
+    
+    @IBAction func joinTeam(_ sender: Any) {
+        
+        
+        self.joinButton.setTitle("Joined!", for: .normal)
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+        let currenTeam = selectedTeam.teamUid
+        
+       
         
         
 //  --- get team detail

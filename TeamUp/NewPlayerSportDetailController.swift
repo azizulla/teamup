@@ -64,7 +64,7 @@ class NewPlayerSportDetailController: UIViewController{
         
         
         let player:[String : AnyObject] = ["position":position as AnyObject,
-                                           "jerseyNumber":jerseyNumber as AnyObject]
+                                           "kitNumber":jerseyNumber as AnyObject]
         
         
         

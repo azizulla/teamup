@@ -52,9 +52,7 @@ class NewPlayerDetailController: UIViewController{
         
         let cancelAction = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(cancelAction)
-        
-        // let profileImage = self.profileImage
-        
+  
         
      //   guard let playerEmail = playerEmailTextField.text, !playerEmail.isEmpty else { return present(alert, animated: true, completion: nil)}
         guard let playerFirstName = playerFirstNameTextField.text, !playerFirstName.isEmpty else { return present(alert, animated: true, completion: nil)}
@@ -63,11 +61,7 @@ class NewPlayerDetailController: UIViewController{
         guard let playerPhoneNumber = playerPhoneNumberTextField.text, !playerPhoneNumber.isEmpty else { return  present(alert, animated: true, completion: nil)}
   //      guard let playerPassword = playerPassword.text, !playerPassword.isEmpty else { return present(alert, animated: true, completion: nil)}
         
-        
-        
-        
 
-            
             
             let player:[String : AnyObject] = ["firstName":playerFirstName as AnyObject,
                                                "lastName":playerLastName as AnyObject,

@@ -21,6 +21,7 @@ class PickUpProfileViewController: UIViewController {
     
     var team = [Team]()
     var players = [Players]()
+    var pickup = [PickUp]()
     var ref:DatabaseReference?
     
     
@@ -33,6 +34,7 @@ class PickUpProfileViewController: UIViewController {
     @IBOutlet weak var eventDate: UILabel!
     @IBOutlet weak var price: UILabel!
     
+    @IBOutlet weak var joinButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -45,33 +47,94 @@ class PickUpProfileViewController: UIViewController {
         price.text = selectedPost["price"] as? String
         
         
-      //  self.inviteButton.layer.cornerRadius = 10
-      //  self.inviteButton.clipsToBounds = true
+        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+ let currentPickUp = selectedPost["teamUid"] as? String
         
-      /*  let currentPlayerUid = selectedPost["uid"] as? String
-        
-        let imageStorageRef = Storage.storage().reference().child("players").child(currentPlayerUid!).child("profile-400x400.png")
-        
-        imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { data, error in
-            // Error available with .localizedDescription, but can simply be that the image does not exist yet
-            if error == nil{
+        ref?.child("Players").child(userID!).child("PickUp").observeSingleEvent(of: .value, with: { (snapshot) in
+            // databaseRef.child("following").child(self.loggedInUser!.uid).child(self.otherUser?["uid"] as! String).observe(.value, with: { (snapshot) in
+            
+            if snapshot.hasChild(currentPickUp!)
+            {
+                self.joinButton.setTitle("Already A member", for: .normal)
+                print("You are following the user")
                 
-                print(data)
-                
-                self.profileImageView.image = UIImage(data: data!)
-                print("success uploading image from firebase")
-            } else {
-                
-                print(error?.localizedDescription ?? "testing")
+            }
+            else
+            {
+                self.joinButton.setTitle("Join", for: .normal)
+                print("You are not following the user")
             }
             
-        }*/
+            
+        }) { (error) in
+            
+            print(error.localizedDescription)
+        }
         
+       
+
     }
     
     
-    @IBAction func teamInvite(_ sender: Any) {
+    @IBAction func pickupJoin(_ sender: Any) {
         
+        self.joinButton.setTitle("Joined!", for: .normal)
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+
+        let currentPickUp = selectedPost["teamUid"] as? String
+       
+        
+        
+       
+        
+//  --- get pickup detail
+        
+        ref?.child("PickUp").child(currentPickUp!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let item = PickUp(snapshot: snapshot as! DataSnapshot)
+            
+            let price = item.price
+            let key = snapshot.key
+            let pickupName = item.pickUpName
+            
+            print(pickupName)
+            
+            let playerinfo:[String : AnyObject] = ["name": pickupName as AnyObject,
+                                                   "teamUid": key as AnyObject,
+                                                   "price": price as AnyObject]
+            let post = ["/PickUp/\(String(describing: key))": playerinfo]
+            self.ref?.child("Players").child(userID!).updateChildValues(post)
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+        
+//  --- get player detail
+        
+        ref?.child("Players").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            //let value = snapshot.value as? NSDictionary
+            let item = Players(snapshot: snapshot as! DataSnapshot)
+            let firstName = item.firstName
+            
+            let key = snapshot.key
+            
+            let playerinfo:[String : AnyObject] = ["firstName": firstName as AnyObject,
+                                                   "key": userID as AnyObject]
+            let post = ["/players/\(String(describing: key))": playerinfo]
+            
+            self.ref?.child("PickUp").child(currentPickUp!).updateChildValues(post)
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        
+                
     }
     
     @IBAction func close(_ sender: Any) {
